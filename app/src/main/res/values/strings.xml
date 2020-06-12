@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Jetpack ToDo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_label">ToDo List</string>
+    <string name="details_label">Task Details</string>
+    <string name="no_task_item">No Task Item</string>
+    <string name="new_task">New Task</string>
+    <string name="task_title">Title</string>
+    <string name="enter_task_title">Enter task title</string>
+    <string name="task_details">Task Details</string>
+    <string name="enter_task_description">Enter task description</string>
+    <string name="empty_task_snackbar_message">Task cannot be empty</string>
+    <string name="saved_task_successfully">Task saved successfully</string>
+    <string name="checkbox_completed">completed</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="task_deleted_successfully">Task deleted successfully</string>
+    <string name="task_marked_completed">Task marked completed</string>
+    <string name="task_marked_active">Task marked active</string>
+    <string name="edit_label">Edit Task</string>
+    <string name="task_edit_successfully">Task edited successfully</string>
+    <string name="all_tasks">All tasks</string>
+    <string name="active_tasks">Active tasks</string>
+    <string name="completed_tasks">Completed tasks</string>
+    <string name="current_active_tasks">current active tasks</string>
+    <string name="current_completed_tasks">current completed tasks</string>
+    <string name="current_all_tasks">current all tasks</string>
+</resources>

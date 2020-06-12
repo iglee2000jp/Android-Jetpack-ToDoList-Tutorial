@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.widget.CompoundButton" />
+
+        <variable
+            name="task"
+            type="com.example.jetpacktodo.source.model.Task" />
+
+        <variable
+            name="viewModel"
+            type="com.example.jetpacktodo.ui.TaskListViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.navigateToDetails(task.taskId)}"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
+
+            <CheckBox
+                android:id="@+id/complete_checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="@{task.isCompleted}"
+                android:onClick="@{(view)->viewModel.updateCheckbox( task,((CompoundButton)view).isChecked())}" />
+
+            <TextView
+                android:id="@+id/task_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:text="@{task.taskTitle}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

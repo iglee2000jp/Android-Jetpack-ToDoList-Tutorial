@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/taskListFragment">
+
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.example.jetpacktodo.ui.TaskListFragment"
+        android:label="@string/list_label"
+        tools:layout="@layout/fragment_task_list">
+        <action
+            android:id="@+id/action_taskListFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+        <argument
+            android:name="result"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_taskListFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.example.jetpacktodo.ui.TaskDetailFragment"
+        android:label="@string/details_label"
+        tools:layout="@layout/fragment_task_detail">
+        <argument
+            android:name="taskId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_taskDetailFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment">
+            <argument
+                android:name="result"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_taskDetailFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.jetpacktodo.ui.AddTaskFragment"
+        android:label="@string/new_task"
+        tools:layout="@layout/fragment_add_task">
+        <action
+            android:id="@+id/action_addTaskFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment">
+            <argument
+                android:name="result"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="com.example.jetpacktodo.ui.EditTaskFragment"
+        android:label="@string/edit_label"
+        tools:layout="@layout/fragment_edit_task">
+        <argument
+            android:name="taskId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editTaskFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/taskListFragment">
+            <argument
+                android:name="result"
+                app:argType="integer" />
+        </action>
+    </fragment>
+</navigation>

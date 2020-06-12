@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.widget.CompoundButton" />
+
+        <variable
+            name="viewModel"
+            type="com.example.jetpacktodo.ui.TaskDetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.TaskDetailFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/title_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:text="@{viewModel.task.taskTitle}"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/details_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:text="@{viewModel.task.taskDescription}"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:checked="@{viewModel.task.isCompleted}"
+                    android:onClick="@{(view)->viewModel.updateCheckbox(((CompoundButton)view).isChecked())}"
+                    android:paddingTop="2dp"
+                    android:text="@string/checkbox_completed" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:onClick="@{()->viewModel.navigateToEdit()}"
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_edit"
+            app:fabSize="normal" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
